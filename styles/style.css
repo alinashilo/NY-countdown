@@ -1,1 +1,72 @@
 @import "normalize.css";
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Montserrat:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  height: 100vh;
+  background: url("../assets/images/bg.jpg") 55%;
+  background-size: cover;
+}
+
+.background {
+  height: 100%;
+  background: url("../assets/images/bg.jpg") bottom 15% right 0;
+  background-size: cover;
+  filter: blur(1px);
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.title {
+  margin-top: 20vh;
+  font-family: "Lobster Two", cursive;
+  font-weight: 400;
+  font-size: 104px;
+  color: #ecefef;
+  text-shadow:
+      0 0 8px #ecefef,
+      0 0 10px #ecefef,
+      0 0 21px #ecefef,
+      0 0 42px #2b71ab,
+      0 0 82px #2b71ab,
+      0 0 92px #2b71ab,
+      0 0 102px #2b71ab,
+      0 0 132px #2b71ab,
+      0 0 151px #2b71ab;
+  text-align: center;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  column-gap: 50px;
+}
+
+.countdown__part {
+  width: 125px;
+  margin-top: 30px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+.countdown__number {
+  padding: 20px 0;
+  border-radius: 5px;
+  background: #bb2528;
+  font-size: 64px;
+  color: #ecefef;
+}
+
+.countdown__measure {
+  font-size: 20px;
+  font-weight: 700;
+  color: #bb2528;
+  text-transform: uppercase;
+}
