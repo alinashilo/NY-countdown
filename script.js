@@ -1,23 +1,22 @@
-let currentYear = new Date().getFullYear();
-const nextYear = new Date(currentYear + 1, 0);
-
-const daysOutput = document.querySelector('#days');
-const hoursOutput = document.querySelector('#hours');
-const minutesOutput = document.querySelector('#minutes');
-const secondsOutput = document.querySelector('#seconds');
+const nextYear = new Date(new Date().getFullYear() + 1, 0);
+const output = document.querySelectorAll('.countdown__number');
 
 function countdown() {
-  let currentTime = new Date();
-  let distance = nextYear - currentTime;
+  let currentTime = Date.now();
+  let remainingTime = nextYear - currentTime;
+  let formattedTime = getTimeStr(remainingTime);
+  updateDisplay(formattedTime);
+}
 
-  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  let hours = Math.floor(distance / (1000 * 60 * 60) % 24);
-  let minutes = Math.floor(distance / (1000 * 60) % 60);
-  let seconds = Math.floor(distance / 1000 % 60);
-  daysOutput.textContent = `${days}`;
-  hoursOutput.textContent = `${hours}`;
-  minutesOutput.textContent = `${minutes}`;
-  secondsOutput.textContent = `${seconds}`;
+function getTimeStr(timeStr) {
+  return [Math.floor(timeStr / (1000 * 60 * 60 * 24)),  // days
+    Math.floor(timeStr / (1000 * 60 * 60) % 24),        // hours
+    Math.floor(timeStr / (1000 * 60) % 60),             // minutes
+    Math.floor(timeStr / 1000 % 60)];                   // seconds
+}
+
+function updateDisplay(timeArr) {
+  output.forEach((element, i) => element.textContent = timeArr[i]);
 }
 
 countdown();
