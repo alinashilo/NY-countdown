@@ -9,10 +9,11 @@ function countdown() {
 }
 
 function getTimeStr(timeStr) {
-  return [Math.floor(timeStr / (1000 * 60 * 60 * 24)),  // days
-    Math.floor(timeStr / (1000 * 60 * 60) % 24),        // hours
-    Math.floor(timeStr / (1000 * 60) % 60),             // minutes
-    Math.floor(timeStr / 1000 % 60)];                   // seconds
+  return [timeStr / (1000 * 60 * 60 * 24),        // days
+          timeStr / (1000 * 60 * 60) % 24,        // hours
+          timeStr / (1000 * 60) % 60,             // minutes
+          timeStr / 1000 % 60]                    // seconds
+    .map(el => Math.floor(el).toString().padStart(2, '0'));
 }
 
 function updateDisplay(timeArr) {
