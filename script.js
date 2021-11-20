@@ -1,5 +1,5 @@
 const nextYear = new Date(new Date().getFullYear() + 1, 0);
-const output = document.querySelectorAll('.countdown__number');
+const output = document.querySelectorAll('.digit_cur');
 
 function countdown() {
   let currentTime = Date.now();
@@ -13,11 +13,19 @@ function getTimeStr(timeStr) {
           timeStr / (1000 * 60 * 60) % 24,        // hours
           timeStr / (1000 * 60) % 60,             // minutes
           timeStr / 1000 % 60]                    // seconds
-    .map(el => Math.floor(el).toString().padStart(2, '0'));
+    .map(el => Math.floor(el).toString().padStart(2, '0')).join('');
 }
 
-function updateDisplay(timeArr) {
-  output.forEach((element, i) => element.textContent = timeArr[i]);
+function updateDisplay(formattedTimeStr) {
+  output.forEach((el, i) => {
+    if (el.textContent !== formattedTimeStr[i]) {
+      el.parentElement.classList.remove('translated');
+      el.nextElementSibling.textContent = el.textContent;
+      el.textContent = formattedTimeStr[i];
+      el.parentElement.offsetWidth;
+      el.parentElement.classList.add('translated');
+    }
+  });
 }
 
 countdown();

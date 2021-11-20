@@ -1,5 +1,5 @@
 @import "normalize.css";
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Montserrat:wght@200;400&display=swap');
 
 * {
   box-sizing: border-box;
@@ -45,28 +45,54 @@
 
 .countdown {
   display: flex;
-  justify-content: center;
-  column-gap: 50px;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #bb2528;
+  color: #ecefef;
+  box-shadow: 0 0 10px 15px rgba(187, 37, 40, 1);
 }
 
 .countdown__part {
-  width: 125px;
   margin-top: 30px;
   font-family: "Montserrat", sans-serif;
   text-align: center;
 }
 
 .countdown__number {
-  padding: 20px 0;
-  border-radius: 5px;
-  background: #bb2528;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100px;
+  width: 110px;
+  padding: 20px 10px;
+  border: 1px solid #ecefef;
+  border-left: none;
+  border-right: none;
   font-size: 64px;
-  color: #ecefef;
+  overflow: hidden;
+}
+
+.digit {
+  width: 45px;
+}
+
+.translated .digit_cur,
+.translated .digit_prev {
+  transform: translateY(0px);
+  transition: transform .7s ease-out;
+}
+
+.digit_cur, .digit_prev {
+  padding-bottom: 20px;
+  line-height: .9;
+  transform: translateY(-80px);
 }
 
 .countdown__measure {
   font-size: 20px;
-  font-weight: 700;
-  color: #bb2528;
+  font-weight: 200;
   text-transform: uppercase;
 }
