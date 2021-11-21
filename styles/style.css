@@ -68,10 +68,9 @@
   height: 100px;
   width: 110px;
   padding: 20px 10px;
-  border: 1px solid #ecefef;
-  border-left: none;
-  border-right: none;
+  border-radius: 5px;
   font-size: 64px;
+  box-shadow: 0 0 10px 5px rgb(121, 23, 23) inset;
   overflow: hidden;
 }
 
