@@ -1,3 +1,8 @@
+function init() {
+  countdown();
+  setInterval(countdown, 1000);
+}
+
 function countdown() {
   const nextYear = new Date(new Date().getFullYear() + 1, 0);
   const output = document.querySelectorAll('.digit_cur');
@@ -27,5 +32,4 @@ function updateDisplay(formattedTimeStr, outputArr) {
   });
 }
 
-countdown();
-setInterval(countdown, 1000);
+init();
