@@ -21,6 +21,9 @@ function getTimeStr(timeStr) {
 }
 
 function updateDisplay(formattedTimeStr, outputArr) {
+  if (formattedTimeStr.length < 9) {
+    formattedTimeStr = '0' + formattedTimeStr;
+  }
   outputArr.forEach((el, i) => {
     if (el.textContent !== formattedTimeStr[i]) {
       el.parentElement.classList.remove('translated');
